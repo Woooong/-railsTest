@@ -1,0 +1,45 @@
+<div class="header">
+  <div class="container">
+    <img src="http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/logo-1m.svg">
+    <h1>새 글</h1>
+  </div>
+</div>
+
+<div class="create">
+  <div class="container">
+    
+      <div class="board_field"> 
+        <div class="board_label">게시글</div>
+        <div class="board_title"><%= @board.title %></div>
+        <div class="board_content"><%= @board.content %></div>
+      </div>
+      <div class="comment_filed">
+        <div class="comment_label">댓글</div>
+        <% @comments.each do |comment| %> 
+            <div class="comment"> 
+              <p class="cmt_content"><%= comment.comment %></p> 
+              <!-- <p class="cmt_time"><%= comment.created_at %></p>  -->
+            </div> 
+        <% end %>
+        <%= form_for(@comment) do |f| %>  
+          <div class="field"> 
+            <%= f.label :'댓글입력' %><br> 
+            <%= f.text_area :comment %>
+            <input type="hidden" name="comment[board_id]" id='comment_board_id' value=<%= @board.id %> >
+            <%= hidden_field_tag(:board_id, @board.id) %>
+          </div>
+          <div class="actions_cmt_btn"> 
+            <%= f.submit "댓글달기" %> 
+          </div> 
+        <% end %>
+      </div>
+      <div class="actions_btn" onclick="location.href = '<%=edit_board_path(@board)%>'">
+      수정하기
+      </div>
+      <div class="actions_btn" onclick="location.href = '/boards'">
+      목록으로
+      </div>
+      
+      
+  </div>
+</div>
