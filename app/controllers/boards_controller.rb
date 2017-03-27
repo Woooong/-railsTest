@@ -1,6 +1,5 @@
 class BoardsController < ApplicationController
 	def index
-
 		@boards = Board.paginate(:page => params[:page], :per_page => 5)
 	end
 
@@ -27,6 +26,10 @@ class BoardsController < ApplicationController
 		@board = Board.find(params[:id]) 
 	end
 
+	def edit_chk
+		@board = Board.find(params[:id]) 
+	end
+
 	def update 
 	  @board = Board.find(params[:id]) 
 	  if @board.update_attributes(board_params) 
@@ -48,11 +51,11 @@ class BoardsController < ApplicationController
 
 	private 
 	  def board_params 
-	    params.require(:board).permit(:title, :content) 
+	    params.require(:board).permit(:writer, :wirter_pwd, :title, :content) 
 	  end
 
 	private 
 	  def comment_params 
-	    params.require(:comment).permit(:comment, :board_id) 
+	    params.require(:comment).permit(:comment, :board_id, :wirter_pwd) 
 	  end
 end

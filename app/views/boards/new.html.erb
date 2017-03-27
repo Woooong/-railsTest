@@ -13,6 +13,8 @@
         <div class="field_label"> 
         <%= f.label :'새 게시글' %><br> 
         </div>
+        <%= f.label :'작성자' %><%= f.text_field :writer %><br>
+        <%= f.label :'비밀번호' %><%= f.text_field :wirter_pwd %><br>
         <%= f.label :'제목' %><%= f.text_field :title %><br>
         <%= f.label :'내용' %><br>
         <%= f.text_area :content %> 
@@ -20,6 +22,9 @@
       <div class="actions"> 
         <%= f.submit "게시글 작성" %> 
       </div> 
+      <div class="actions_btn" onclick="history.back();">
+            취소
+    </div> 
     <% end %>
 
   </div>

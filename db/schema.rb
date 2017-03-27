@@ -10,14 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170321110700) do
+ActiveRecord::Schema.define(version: 20170327025756) do
 
   create_table "boards", force: :cascade do |t|
     t.string   "title"
     t.string   "content"
     t.string   "writer"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "wirter_pwd"
+    t.integer  "hits",       default: 0
+    t.integer  "recommend",  default: 0
+    t.integer  "no_reco"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -26,6 +30,8 @@ ActiveRecord::Schema.define(version: 20170321110700) do
     t.integer  "board_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "wirter_pwd"
+    t.string   "ip"
     t.index ["board_id"], name: "index_comments_on_board_id"
   end
 

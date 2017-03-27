@@ -1,0 +1,33 @@
+<div class="header">
+  <div class="container">
+    <img src="http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/logo-1m.svg">
+    <h1>비밀번호 확인</h1>
+  </div>
+</div>
+
+<div class="create">
+  <div class="container">
+    <label>비회원글 수정</label>
+    <table>
+      <tr>
+        <td>비밀번호를 입력하세요.</td>
+      </tr>
+      <tr>
+        <td><input type="password" name="wirter_pwd" placeholder="비밀번호"></td>
+      </tr>
+      <tr>
+        <td>
+          <div class="actions_btn" onclick="location.href = '<%=edit_board_path(@board)%>'">
+            수정하기
+          </div>
+          <div class="actions_btn" onclick="history.back();">
+            이전으로
+          </div>
+          <div class="actions_btn" onclick="location.href = '/boards'">
+            목록보기
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

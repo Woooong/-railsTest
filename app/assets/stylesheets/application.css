@@ -116,10 +116,10 @@ form textarea:focus {
   transition: border 0.5s;
 }
 
-form input[type="text"]{
+/*form input[type="text"]{
   width: 696px;
     height: 20px;
-}
+}*/
 
 form .field_label{
   margin-bottom: 20px;
